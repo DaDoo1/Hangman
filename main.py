@@ -7,7 +7,9 @@ pygame.init()
 clock = pygame.time.Clock()
 
 #nastavenia okna
-window = pygame.display.set_mode((800, 500))
+SIRKA = 800
+VYSKA = 500
+window = pygame.display.set_mode((SIRKA, VYSKA))
 BIELA = (255, 255, 255)
 CIERNA = (0,0,0)
 
@@ -46,7 +48,12 @@ for znak,okno in enumerate(OKNA):
 
 #fonty pisma
 tlacidlo_font = pygame.font.SysFont("arial", 30)
+hra_font = pygame.font.SysFont("arial", 80)
 
+#nadpis pre hru
+nadpis = "Hangman"
+nadpis_text = hra_font.render(nadpis, True, CIERNA)
+nadpis_vypis = nadpis_text.get_rect(center=(SIRKA//2//2+400, hra_font.get_height()//2-10))
 
 
 while True:
@@ -56,11 +63,12 @@ while True:
             sys.exit()
         window.fill(BIELA)
         window.blit(OBRAZKY[stav_hangmana], (150, 100))
+        window.blit(nadpis_text,nadpis_vypis)
         #vykreslenie tlacidiel
         for okno, pismena in TLACIDLA:
             tlacidlo_text = tlacidlo_font.render(pismena, True, CIERNA)
-            tlacidlo_tvar = tlacidlo_text.get_rect(center = (okno.x + 20, okno.y +20))
-            window.blit(tlacidlo_text, tlacidlo_tvar)
+            tlacidlo_vypisanie = tlacidlo_text.get_rect(center = (okno.x + 20, okno.y +20))
+            window.blit(tlacidlo_text, tlacidlo_vypisanie)
             pygame.draw.rect(window, CIERNA, okno, 2)
 
 
