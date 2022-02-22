@@ -10,6 +10,7 @@ def vykreslenie_tlacidiel(TLACIDLA):
         tlacidlo_vypisanie = tlacidlo_text.get_rect(center=(okno.x + 20, okno.y + 20))
         window.blit(tlacidlo_text, tlacidlo_vypisanie)
         pygame.draw.rect(window, CIERNA, okno, 2)
+#vykreslenie hadaneho slova
 def uhadnute_slovo():
     display_text = ""
     for pismena in SLOVO:
@@ -82,7 +83,7 @@ nadpis = "Hangman"
 nadpis_text = hra_font.render(nadpis, True, CIERNA)
 nadpis_vypis = nadpis_text.get_rect(center=(SIRKA//2//2+400, hra_font.get_height()//2-10))
 
-
+#mackanie tlacidiel a hadanie slova
 while True:
     for event in pygame.event.get():
         if event.type == QUIT:
@@ -105,6 +106,7 @@ while True:
     window.blit(nadpis_text,nadpis_vypis)
     vykreslenie_tlacidiel(TLACIDLA)
     uhadnute_slovo()
+#zaverecny vypis po dohrani hry
     vyhra = True
     for pismena in SLOVO:
         if pismena not in UHADNUTE_SLOVO:
@@ -114,8 +116,6 @@ while True:
         koniec_hry_vypis = "Vyhral si :)"
     else:
         koniec_hry_vypis = "Prehral si :("
-
-
 
 
     pygame.display.update()
