@@ -1,7 +1,7 @@
-import button as button
 import pygame
 import sys
 from pygame.locals import *
+import random
 
 #vykreslenie tlacidiel
 def vykreslenie_tlacidiel(TLACIDLA):
@@ -32,8 +32,6 @@ CIERNA = (0,0,0)
 #stav hry
 
 koniec_hry = False
-
-
 
 #nastavenie hornej listy
 pygame.display.set_caption("Hangman")
@@ -74,7 +72,8 @@ hra_font = pygame.font.SysFont("arial", 80)
 pismeno_font = pygame.font.SysFont("arial", 60)
 
 #zoznam slov
-SLOVO = "PYGAME"
+list_slov = ["PYGAME", "PYTHON", "HTML",]
+SLOVO = random.choice(list_slov)
 UHADNUTE_SLOVO = []
 
 
