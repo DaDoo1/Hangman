@@ -44,8 +44,8 @@ OBRAZKY = []
 stav_hangmana = 0
 
 for i in range(7):
-    image = pygame.image.load(f"obrázky/Hangman{i}.png")
-    OBRAZKY.append(image)
+    obrazok = pygame.image.load(f"obrázky/Hangman{i}.png")
+    OBRAZKY.append(obrazok)
 #tlacidla a vypis pismen do tlacidiel
 RIADKY = 2
 STLPCE = 13
@@ -68,9 +68,9 @@ for znak,okno in enumerate(OKNA):
     TLACIDLA.append(tlacidlo)
 
 #fonty pisma
-tlacidlo_font = pygame.font.SysFont("arial", 30)
-hra_font = pygame.font.SysFont("arial", 80)
-pismeno_font = pygame.font.SysFont("arial", 60)
+tlacidlo_font = pygame.font.SysFont("arial", 30)#font pisma v tlacitku
+hra_font = pygame.font.SysFont("arial", 80)#font nadpisu
+pismeno_font = pygame.font.SysFont("arial", 60)#font vypisaneho slova
 
 #zoznam slov
 list_slov = ["PYGAME", "PYTHON", "HTML",]
